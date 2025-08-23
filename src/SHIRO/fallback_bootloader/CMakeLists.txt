@@ -5,7 +5,7 @@ include(../../../cmake/toolchains/standalone.cmake)
 include(../../../cmake/toolchains/efi.cmake)
 
 project(
-        SHIRO_BOOTLOADER
+        SHIRO_FALLBACK_BOOTLOADER
         VERSION 0.1.0
         DESCRIPTION "A bootloader for x86_64 UEFI"
         LANGUAGES ASM_NASM
@@ -13,15 +13,7 @@ project(
 
 set(PROJECT_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 
-set_output("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SHIRO")
-add_executable(SHIROX64
-    bootloader.asm
-)
-
-add_custom_command(
-        TARGET SHIROX64
-        POST_BUILD
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-        COMMAND ${CMAKE_COMMAND}
-        ARGS -E copy ${CMAKE_CURRENT_SOURCE_DIR}/run.sh ${CMAKE_BINARY_DIR}
+set_output("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/BOOT")
+add_executable(BOOTX64
+        fallback.asm
 )

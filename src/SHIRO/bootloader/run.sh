@@ -1,0 +1,2 @@
+sh -c "[ -f OVMF_VARS.4m.fd ] || cp /usr/share/edk2/x64/OVMF_VARS.4m.fd ./"
+qemu-system-x86_64 -drive if=pflash,format=raw,readonly=on,file=/usr/share/edk2/x64/OVMF_CODE.4m.fd -drive if=pflash,format=raw,file=./OVMF_VARS.4m.fd -drive format=raw,file=fat:rw:boot/

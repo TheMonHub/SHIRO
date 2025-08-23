@@ -6,5 +6,7 @@ project(
         LANGUAGES ASM_NASM C
 )
 include(cmake/common.cmake)
+set(SHIRO_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 
 add_subdirectory(src/SHIRO/bootloader)
+add_subdirectory(src/SHIRO/fallback_bootloader)
