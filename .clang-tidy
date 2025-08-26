@@ -9,7 +9,12 @@ Checks: "*,
         -llvm*,
         -zircon-*,
         google-*,
-        -modernize-use-trailing-return-type
+        -modernize-use-trailing-return-type,
+        -*-pro-type-reinterpret-cast,
+        -*-deprecated-headers,
+        -*-avoid-c-arrays,
+        -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+        -hicpp-no-array-decay
 "
 WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'
