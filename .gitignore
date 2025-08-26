@@ -35,9 +35,6 @@
 .idea/
 .vscode/
 
-# CMake generated files
-metadata.cppm
-
 # Build directories
 build/
 cmake-build-*/
