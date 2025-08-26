@@ -5,6 +5,7 @@ project(
         DESCRIPTION "A bootloader, kernel, and operating system for x86_64 UEFI"
         LANGUAGES ASM_NASM C
 )
+set(SHIRO_SHALLOWNESS ${CMAKE_CURRENT_SOURCE_DIR})
 include(cmake/common.cmake)
 set(SHIRO_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 

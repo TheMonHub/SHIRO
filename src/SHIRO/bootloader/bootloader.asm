@@ -7,4 +7,5 @@ section .bss
 section .text
     global _start
 _start:
-    hlt
+    xor rax, rax
+    ret

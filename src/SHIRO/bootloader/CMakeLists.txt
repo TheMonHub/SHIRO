@@ -1,27 +1,32 @@
 cmake_minimum_required(VERSION 3.29 FATAL_ERROR)
 
-include(../../../cmake/common.cmake)
-include(../../../cmake/toolchains/standalone.cmake)
-include(../../../cmake/toolchains/efi.cmake)
+set(SHIRO_PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../..")
+include(${SHIRO_PARENT_DIR}/cmake/common.cmake)
+include(${SHIRO_PARENT_DIR}/cmake/toolchains/standalone.cmake)
+include(${SHIRO_PARENT_DIR}/cmake/toolchains/efi.cmake)
 
 project(
         SHIRO_BOOTLOADER
         VERSION 0.1.0
-        DESCRIPTION "A bootloader for x86_64 UEFI"
+        DESCRIPTION "A bootloader for SHIRO x86_64 UEFI"
         LANGUAGES ASM_NASM
 )
 
+find_program(QEMU NAMES qemu-system-x86_64)
+set(OVMF_DIR "/usr/share/edk2/x64" CACHE PATH "Path to OVMF files")
+
 set(PROJECT_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 
-set_output("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SHIRO")
+set_output_run("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SHIRO")
 add_executable(SHIROX64
-    bootloader.asm
+        bootloader.asm
 )
 
-add_custom_command(
-        TARGET SHIROX64
-        POST_BUILD
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-        COMMAND ${CMAKE_COMMAND}
-        ARGS -E copy ${CMAKE_CURRENT_SOURCE_DIR}/run.sh ${CMAKE_BINARY_DIR}
-)
+if (QEMU)
+    message(STATUS "QEMU found: ${QEMU}")
+    configure_file(
+            ${CMAKE_CURRENT_SOURCE_DIR}/run.sh.in
+            ${CMAKE_BINARY_DIR}/run.sh
+            @ONLY
+    )
+endif ()

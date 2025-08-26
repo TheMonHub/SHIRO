@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-
-sh -c "[ -f OVMF_VARS.4m.fd ] || cp /usr/share/edk2/x64/OVMF_VARS.4m.fd ./"
-qemu-system-x86_64 -drive if=pflash,format=raw,readonly=on,file=/usr/share/edk2/x64/OVMF_CODE.4m.fd -drive if=pflash,format=raw,file=./OVMF_VARS.4m.fd -drive format=raw,file=fat:rw:boot/
+mkdir -p qemu
+sudo cp -n @OVMF_DIR@/OVMF_VARS.4m.fd qemu/OVMF_VARS.4m.fd
+sudo chown "$(whoami):$(whoami)" qemu/OVMF_VARS.4m.fd
+qemu-system-x86_64 -drive if=pflash,format=raw,readonly=on,file=@OVMF_DIR@/OVMF_CODE.4m.fd -drive if=pflash,format=raw,file=qemu/OVMF_VARS.4m.fd -drive format=raw,file=fat:rw:boot/
