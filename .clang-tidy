@@ -9,10 +9,7 @@ Checks: "*,
         -llvm*,
         -zircon-*,
         google-*,
-        -modernize-use-trailing-return-type,
-        -misc-include-cleaner,
-        -readability-redundant-declaration,
-        -*-use-internal-linkage
+        -modernize-use-trailing-return-type
 "
 WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'

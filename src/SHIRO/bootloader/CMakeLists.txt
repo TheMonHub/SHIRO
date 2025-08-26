@@ -24,9 +24,13 @@ add_executable(SHIROX64
 
 if (QEMU)
     message(STATUS "QEMU found: ${QEMU}")
+    message(NOTICE "Please ensure that the OVMF_DIR variable is set correctly.")
+    message(STATUS "OVMF directory: ${OVMF_DIR}")
     configure_file(
             ${CMAKE_CURRENT_SOURCE_DIR}/run.sh.in
             ${CMAKE_BINARY_DIR}/run.sh
             @ONLY
     )
+else ()
+    message(WARNING "QEMU not found, skipping run.sh generation.")
 endif ()
