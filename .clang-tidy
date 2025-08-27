@@ -20,35 +20,51 @@ WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'
 ExcludeHeaderFilterRegex: '.*[/\\]_deps[/\\]?.*'
 
-CheckOptions:
-  readability-function-cognitive-complexity.Threshold: 50
-  readability-identifier-length.MinimumVariableNameLength: 2
-  readability-identifier-length.MinimumParameterNameLength: 2
-  readability-identifier-naming.NamespaceCase: lower_case
+CheckOptions: 
+  readability-identifier-length.MinimumVariableNameLength: 1
+  readability-identifier-length.MinimumParameterNameLength: 1
+
+  # Namespaces
+  readability-identifier-naming.NamespaceCase: snake_case
+
+  # Types
   readability-identifier-naming.ClassCase: CamelCase
   readability-identifier-naming.StructCase: CamelCase
   readability-identifier-naming.EnumCase: CamelCase
   readability-identifier-naming.TypedefCase: CamelCase
   readability-identifier-naming.TypeAliasCase: CamelCase
-  readability-identifier-naming.FunctionCase: camelBack
-  readability-identifier-naming.VariableCase: camelBack
-  readability-identifier-naming.LocalVariableCase: camelBack
+  readability-identifier-naming.TemplateParameterCase: CamelCase
+
+  # Functions
+  readability-identifier-naming.FunctionCase: PascalCase
+  readability-identifier-naming.ParameterCase: snake_case
+
+  # Variables
+  readability-identifier-naming.VariableCase: snake_case
+  readability-identifier-naming.LocalVariableCase: snake_case
+  readability-identifier-naming.MemberCase: snake_case
+  readability-identifier-naming.MemberSuffix: '_'
+  readability-identifier-naming.StructMemberSuffix: ''
+  readability-identifier-naming.StructMemberCase: snake_case
   readability-identifier-naming.GlobalVariableCase: lower_case
   readability-identifier-naming.GlobalVariablePrefix: 'g_'
-  readability-identifier-naming.ParameterCase: camelBack
-  readability-identifier-naming.MemberCase: lower_case
-  readability-identifier-naming.MemberSuffix: '_'
+  readability-identifier-naming.StaticVariableCase: lower_case
+  readability-identifier-naming.StaticVariablePrefix: 's_'
+
+  # Constants
   readability-identifier-naming.GlobalConstantCase: CamelCase
   readability-identifier-naming.GlobalConstantPrefix: 'k'
   readability-identifier-naming.StaticConstantCase: CamelCase
   readability-identifier-naming.StaticConstantPrefix: 'k'
-  readability-identifier-naming.StaticVariableCase: lower_case
-  readability-identifier-naming.StaticVariablePrefix: 's_'
-  readability-identifier-naming.StaticVariableSuffix: '_'
-  readability-identifier-naming.EnumConstantCase: UPPER_CASE
-  readability-identifier-naming.EnumConstantPrefix: ''
   readability-identifier-naming.ConstexprVariableCase: CamelCase
   readability-identifier-naming.ConstexprVariablePrefix: 'k'
+
+  # Enums
+  readability-identifier-naming.EnumConstantCase: CamelCase
+  readability-identifier-naming.EnumConstantPrefix: 'k'
+
+  # Macros
   readability-identifier-naming.MacroCase: UPPER_CASE
+
+  # Files
   readability-identifier-naming.FileCase: lower_case
-  readability-identifier-naming.TemplateParameterCase: CamelCase
