@@ -47,9 +47,7 @@ CheckOptions:
   readability-identifier-naming.StructMemberSuffix: ''
   readability-identifier-naming.StructMemberCase: snake_case
   readability-identifier-naming.GlobalVariableCase: lower_case
-  readability-identifier-naming.GlobalVariablePrefix: 'g_'
   readability-identifier-naming.StaticVariableCase: lower_case
-  readability-identifier-naming.StaticVariablePrefix: 's_'
 
   # Constants
   readability-identifier-naming.GlobalConstantCase: CamelCase
