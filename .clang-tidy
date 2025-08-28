@@ -50,15 +50,15 @@ CheckOptions:
   readability-identifier-naming.StaticVariableCase: lower_case
 
   # Constants
-  readability-identifier-naming.GlobalConstantCase: CamelCase
+  readability-identifier-naming.GlobalConstantCase: camelCase
   readability-identifier-naming.GlobalConstantPrefix: 'k'
-  readability-identifier-naming.StaticConstantCase: CamelCase
+  readability-identifier-naming.StaticConstantCase: camelCase
   readability-identifier-naming.StaticConstantPrefix: 'k'
-  readability-identifier-naming.ConstexprVariableCase: CamelCase
+  readability-identifier-naming.ConstexprVariableCase: camelCase
   readability-identifier-naming.ConstexprVariablePrefix: 'k'
 
   # Enums
-  readability-identifier-naming.EnumConstantCase: CamelCase
+  readability-identifier-naming.EnumConstantCase: camelCase
   readability-identifier-naming.EnumConstantPrefix: 'k'
 
   # Macros
