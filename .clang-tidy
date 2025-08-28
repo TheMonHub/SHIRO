@@ -20,7 +20,7 @@ WarningsAsErrors: '*'
 HeaderFilterRegex: '.*'
 ExcludeHeaderFilterRegex: '.*[/\\]_deps[/\\]?.*'
 
-CheckOptions: 
+CheckOptions:
   readability-identifier-length.MinimumVariableNameLength: 1
   readability-identifier-length.MinimumParameterNameLength: 1
 
@@ -50,15 +50,15 @@ CheckOptions:
   readability-identifier-naming.StaticVariableCase: lower_case
 
   # Constants
-  readability-identifier-naming.GlobalConstantCase: camelCase
+  readability-identifier-naming.GlobalConstantCase: camelBack
   readability-identifier-naming.GlobalConstantPrefix: 'k'
-  readability-identifier-naming.StaticConstantCase: camelCase
+  readability-identifier-naming.StaticConstantCase: camelBack
   readability-identifier-naming.StaticConstantPrefix: 'k'
-  readability-identifier-naming.ConstexprVariableCase: camelCase
+  readability-identifier-naming.ConstexprVariableCase: camelBack
   readability-identifier-naming.ConstexprVariablePrefix: 'k'
 
   # Enums
-  readability-identifier-naming.EnumConstantCase: camelCase
+  readability-identifier-naming.EnumConstantCase: camelBack
   readability-identifier-naming.EnumConstantPrefix: 'k'
 
   # Macros
