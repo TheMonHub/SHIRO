@@ -66,3 +66,4 @@ CheckOptions:
 
   # Files
   readability-identifier-naming.FileCase: lower_case
+...
