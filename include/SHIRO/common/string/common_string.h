@@ -27,8 +27,12 @@
 extern "C" {
 #endif
 
-extern const uint16_t *g_common_hello_world_16;
-extern const uint16_t *g_common_newline_16;
+struct my_struct {
+  my_struct() { const int a = 1; }
+};
+extern const uint16_t *utf16_common_hello_world;
+extern const uint16_t *utf16_common_newline;
+extern my_struct TEST();
 
 #ifdef __cplusplus
 }

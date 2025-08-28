@@ -22,11 +22,15 @@
 
 #include <stdint.h>
 
-static const char16_t kHelloWorld_16[] = u"Hello, world!";
+static const my_struct global_my_struct;
+
+static const char16_t kHelloWorld16[] = u"Hello, world!";
 static const char16_t kNewLine16[] = u"\r\n";
 
-extern "C" const uint16_t *g_common_hello_world_16 =
-    reinterpret_cast<const uint16_t *>(kHelloWorld_16);
+extern "C" const uint16_t *utf16_common_hello_world =
+    reinterpret_cast<const uint16_t *>(kHelloWorld16);
 
-extern "C" const uint16_t *g_common_newline_16 =
+extern "C" const uint16_t *utf16_common_newline =
     reinterpret_cast<const uint16_t *>(kNewLine16);
+
+my_struct TEST() { return global_my_struct; }

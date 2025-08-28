@@ -21,7 +21,7 @@ set_output_run("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SHIRO")
 add_executable(SHIROX64
         bootloader.asm
 )
-target_link_libraries(SHIROX64 PRIVATE SHIRO_COMMON)
+target_link_libraries(SHIROX64 PRIVATE SHIRO_EFI_COMMON)
 
 if (QEMU)
     message(STATUS "QEMU found: ${QEMU}")

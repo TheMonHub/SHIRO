@@ -1,5 +1,6 @@
-extern g_common_hello_world_16
-extern g_common_newline_16
+extern utf16_common_hello_world
+extern utf16_common_newline
+extern TEST
 section .data
 
 section .rodata
@@ -8,27 +9,28 @@ section .bss
     print resq 1
     conout resq 1
 section .text
-    global _start
-_start:
+    global EFI_MAIN
+EFI_MAIN:
+    call TEST
     mov rcx, [rdx + 64]
     mov rax, [rcx + 8]
     mov [print], rax
     mov [conout], rcx
-    mov rdx, [g_common_hello_world_16]
+    mov rdx, [utf16_common_hello_world]
     sub rsp, 32
     call rax
     add rsp, 32
 
     mov rcx, [conout]
     mov rax, [print]
-    mov rdx, [g_common_newline_16]
+    mov rdx, [utf16_common_newline]
     sub rsp, 32
     call rax
     add rsp, 32
 
     mov rcx, [conout]
     mov rax, [print]
-    mov rdx, [g_common_hello_world_16]
+    mov rdx, [utf16_common_hello_world]
     sub rsp, 32
     call rax
     add rsp, 32

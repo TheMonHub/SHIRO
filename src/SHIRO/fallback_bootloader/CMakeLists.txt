@@ -18,4 +18,4 @@ set_output_run("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/BOOT")
 add_executable(BOOTX64
         fallback.asm
 )
-target_link_libraries(BOOTX64 PRIVATE SHIRO_COMMON)
+target_link_libraries(BOOTX64 PRIVATE SHIRO_EFI_COMMON)
