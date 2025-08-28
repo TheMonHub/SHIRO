@@ -25,7 +25,7 @@ CheckOptions:
   readability-identifier-length.MinimumParameterNameLength: 1
 
   # Namespaces
-  readability-identifier-naming.NamespaceCase: snake_case
+  readability-identifier-naming.NamespaceCase: lower_case
 
   # Types
   readability-identifier-naming.ClassCase: CamelCase
@@ -36,16 +36,16 @@ CheckOptions:
   readability-identifier-naming.TemplateParameterCase: CamelCase
 
   # Functions
-  readability-identifier-naming.FunctionCase: PascalCase
+  readability-identifier-naming.FunctionCase: CamelCase
   readability-identifier-naming.ParameterCase: snake_case
 
   # Variables
-  readability-identifier-naming.VariableCase: snake_case
-  readability-identifier-naming.LocalVariableCase: snake_case
-  readability-identifier-naming.MemberCase: snake_case
+  readability-identifier-naming.VariableCase: lower_case
+  readability-identifier-naming.LocalVariableCase: lower_case
+  readability-identifier-naming.MemberCase: lower_case
   readability-identifier-naming.MemberSuffix: '_'
   readability-identifier-naming.StructMemberSuffix: ''
-  readability-identifier-naming.StructMemberCase: snake_case
+  readability-identifier-naming.StructMemberCase: lower_case
   readability-identifier-naming.GlobalVariableCase: lower_case
   readability-identifier-naming.StaticVariableCase: lower_case
 
