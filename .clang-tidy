@@ -36,7 +36,7 @@ CheckOptions:
   readability-identifier-naming.TemplateParameterCase: CamelCase
 
   # Functions
-  readability-identifier-naming.FunctionCase: CamelCase
+  # readability-identifier-naming.FunctionCase: CamelCase | Too strict.
   readability-identifier-naming.ParameterCase: lower_case
 
   # Variables

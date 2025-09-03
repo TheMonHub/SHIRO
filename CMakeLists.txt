@@ -13,3 +13,7 @@ add_subdirectory(src/SHIRO/crt)
 add_subdirectory(src/SHIRO/common)
 add_subdirectory(src/SHIRO/bootloader)
 add_subdirectory(src/SHIRO/fallback_bootloader)
+
+# TODO: Save registers as the initialization code gets called in CRT
+# FIXME: Fix the undefined symbol: __main issue
+# TODO: Review the initialization code for any logical errors IMPORTANT because I think I might mess something up!!

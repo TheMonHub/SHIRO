@@ -6,11 +6,12 @@ section .text
 __dtors:
     mov rax, __dtors_start + 8
 .loop:
-    cmp rax, __dtors_end
-    jge .done
     mov rdi, [rax]
     call rdi
     add rax, 8
+    cmp rax, __dtors_end
+    jge .done
+
     jmp .loop
 .done:
     ret

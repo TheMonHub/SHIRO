@@ -8,4 +8,5 @@ _start:
     call __ctors
     call main
     call __dtors
+__main:
     ret

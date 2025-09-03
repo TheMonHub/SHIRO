@@ -9,7 +9,7 @@ set(CMAKE_CXX_COMPILE_OBJECT
 )
 
 set(CMAKE_C_LINK_EXECUTABLE
-        "<CMAKE_LINKER> -flavor gnu <LINK_FLAGS> -entry:_start -nodefaultlib --gc-sections  ${SHIRO_CXX_PREOBJECTS_ELF} <OBJECTS> <LINK_LIBRARIES> ${SHIRO_CXX_POSTOBJECTS_ELF} -o <TARGET>"
+        "<CMAKE_LINKER> -flavor gnu <LINK_FLAGS> -entry:_start -nodefaultlib --gc-sections  ${SHIRO_MIN_PREOBJECTS_ELF} <OBJECTS> <LINK_LIBRARIES> -o <TARGET>"
 )
 
 set(CMAKE_CXX_LINK_EXECUTABLE
@@ -17,8 +17,7 @@ set(CMAKE_CXX_LINK_EXECUTABLE
 )
 
 set(CMAKE_ASM_NASM_LINK_EXECUTABLE
-        "<CMAKE_LINKER> -flavor gnu <LINK_FLAGS> -entry:_start -nodefaultlib --gc-sections  ${SHIRO_CXX_PREOBJECTS_ELF} <OBJECTS> <LINK_LIBRARIES> ${SHIRO_CXX_POSTOBJECTS_ELF} -o <TARGET>"
-        y)
+        "<CMAKE_LINKER> -flavor gnu <LINK_FLAGS> -entry:_start -nodefaultlib --gc-sections  ${SHIRO_MIN_PREOBJECTS_ELF} <OBJECTS> <LINK_LIBRARIES> -o <TARGET>"
+)
 
-set(TARGET_OBJECT "ELF" CACHE INTERNAL "Target object format" FORCE)
 set(CMAKE_EXECUTABLE_SUFFIX "")
