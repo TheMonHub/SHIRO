@@ -1,6 +1,5 @@
 extern utf16_common_hello_world
 extern utf16_common_newline
-extern TEST
 section .data
 
 section .rodata
@@ -9,9 +8,8 @@ section .bss
     print resq 1
     conout resq 1
 section .text
-    global EFI_MAIN
-EFI_MAIN:
-    call TEST
+    global main
+main:
     mov rcx, [rdx + 64]
     mov rax, [rcx + 8]
     mov [print], rax

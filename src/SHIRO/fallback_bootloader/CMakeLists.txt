@@ -16,6 +16,6 @@ set(PROJECT_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 
 set_output_run("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/BOOT")
 add_executable(BOOTX64
-        fallback.asm
+        fallback.c
 )
 target_link_libraries(BOOTX64 PRIVATE SHIRO_EFI_COMMON)

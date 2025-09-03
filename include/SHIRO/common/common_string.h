@@ -18,19 +18,24 @@
 // Created by Mono on 26/8/25.
 //
 
-#include "../../../include/SHIRO/common/common_string.h"
+#ifndef SHIRO_COMMON_STRING_H
+#define SHIRO_COMMON_STRING_H
 
 #include <stdint.h>
 
-static MyStruct global_my_struct;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-static const char16_t kHelloWorld16[] = u"Hello, world!";
-static const char16_t kNewLine16[] = u"\r\n";
+struct MyStruct {
+  MyStruct() { const int a = 1; }
+};
+extern const uint16_t *utf16_common_hello_world;
+extern const uint16_t *utf16_common_newline;
+extern MyStruct TEST();
 
-extern "C" const uint16_t *utf16_common_hello_world =
-    reinterpret_cast<const uint16_t *>(kHelloWorld16);
+#ifdef __cplusplus
+}
+#endif
 
-extern "C" const uint16_t *utf16_common_newline =
-    reinterpret_cast<const uint16_t *>(kNewLine16);
-
-MyStruct TEST() { return global_my_struct; }
+#endif  // SHIRO_COMMON_STRING_H

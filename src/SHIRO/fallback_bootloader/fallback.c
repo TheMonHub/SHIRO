@@ -14,28 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-//
-// Created by Mono on 26/8/25.
-//
-
-#ifndef SHIRO_COMMON_STRING_H
-#define SHIRO_COMMON_STRING_H
-
-#include <stdint.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-struct my_struct {
-  my_struct() { const int a = 1; }
-};
-extern const uint16_t *utf16_common_hello_world;
-extern const uint16_t *utf16_common_newline;
-extern my_struct TEST();
-
-#ifdef __cplusplus
+int something(int a, int b, int c) {
+  int x = ++a;
+  const int y = ++b;
+  const int z = ++c;
+  x += y + z;
+  return x;
 }
-#endif
 
-#endif  // SHIRO_COMMON_STRING_H
+int main(const int a, const int b, const int c) { return something(a, b, c); }

@@ -8,14 +8,13 @@ include(${SHIRO_PARENT_DIR}/cmake/toolchains/efi.cmake)
 project(
         SHIRO_EFI_COMMON
         VERSION 0.1.0
-        DESCRIPTION "SHIRO Common Constants, Headers and Utilities"
-        LANGUAGES CXX ASM_NASM
+        DESCRIPTION "SHIRO Common Constants, Headers and Utilities for UEFI"
+        LANGUAGES CXX
 )
 
 set(PROJECT_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 
 set_output_arc("${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/common")
 add_library(SHIRO_EFI_COMMON STATIC
-        _start.asm
         common_string.cpp
 )

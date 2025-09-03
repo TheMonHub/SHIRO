@@ -9,6 +9,7 @@ set(SHIRO_PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 include(cmake/common.cmake)
 set(SHIRO_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
 
+add_subdirectory(src/SHIRO/crt)
 add_subdirectory(src/SHIRO/common)
 add_subdirectory(src/SHIRO/bootloader)
 add_subdirectory(src/SHIRO/fallback_bootloader)

@@ -8,14 +8,13 @@ set(CMAKE_CXX_COMPILE_OBJECT
         "<CMAKE_CXX_COMPILER> <FLAGS> -target x86_64-pc-windows-gnu <INCLUDES> -c -o <OBJECT> <SOURCE>"
 )
 
-set(CMAKE_C_LINK_EXECUTABLE "<CMAKE_LINKER> -flavor link <LINK_FLAGS> -subsystem:efi_application -entry:_start -nodefaultlib <OBJECTS> <LINK_LIBRARIES> /out:<TARGET>")
-set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_LINKER> -flavor link <LINK_FLAGS> -subsystem:efi_application -entry:_start -nodefaultlib <OBJECTS> <LINK_LIBRARIES> /out:<TARGET>")
-set(CMAKE_ASM_NASM_LINK_EXECUTABLE "<CMAKE_LINKER> -flavor link <LINK_FLAGS> -subsystem:efi_application -entry:_start -nodefaultlib <OBJECTS> <LINK_LIBRARIES> /out:<TARGET>")
+set(CMAKE_C_LINK_EXECUTABLE "<CMAKE_LINKER> -flavor link <LINK_FLAGS> -subsystem:efi_application -entry:_start -nodefaultlib ${SHIRO_CXX_PREOBJECTS_COFF} <OBJECTS> <LINK_LIBRARIES> ${SHIRO_CXX_POSTOBJECTS_COFF} /out:<TARGET>")
+set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_LINKER> -flavor link <LINK_FLAGS> -subsystem:efi_application -entry:_start -nodefaultlib ${SHIRO_CXX_PREOBJECTS_COFF} <OBJECTS> <LINK_LIBRARIES> ${SHIRO_CXX_POSTOBJECTS_COFF} /out:<TARGET>")
+set(CMAKE_ASM_NASM_LINK_EXECUTABLE "<CMAKE_LINKER> -flavor link <LINK_FLAGS> -subsystem:efi_application -entry:_start -nodefaultlib ${SHIRO_CXX_PREOBJECTS_COFF} <OBJECTS> <LINK_LIBRARIES> ${SHIRO_CXX_POSTOBJECTS_COFF} /out:<TARGET>")
 
 set(CMAKE_EXECUTABLE_SUFFIX ".EFI")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/boot/EFI")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/boot/EFI")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/boot/EFI")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/boot/EFI")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/boot/EFI")
+set_output_run(${CMAKE_BINARY_DIR}/boot/EFI)
+
+set(TARGET_OBJECT "COFF" CACHE INTERNAL "Target object format" FORCE)
+
