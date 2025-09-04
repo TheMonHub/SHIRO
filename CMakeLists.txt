@@ -7,7 +7,9 @@ project(
 )
 set(SHIRO_PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 include(cmake/common.cmake)
-set(SHIRO_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
+
+set(SHIRO_VERSION "${PROJECT_VERSION}") # incase it didn't work with the cached variable
+set(SHIRO_VERSION "${PROJECT_VERSION}" CACHE INTERNAL "SHIRO version")
 
 add_subdirectory(src/SHIRO/crt)
 add_subdirectory(src/SHIRO/common)
