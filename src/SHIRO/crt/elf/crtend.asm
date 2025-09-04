@@ -1,8 +1,8 @@
 section .init_array
-    global __init_end
-__init_end:
+    global __ctors_end
+__ctors_end:
     dq 0
 section .fini_array
-    global __fini_end
-__fini_end:
+    global __dtors_end
+__dtors_end:
     dq 0

@@ -14,24 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-//
-// Created by Mono on 26/8/25.
-//
+#ifndef SHIRO_CRT_H
+#define SHIRO_CRT_H
 
-#ifndef SHIRO_COMMON_STRING_H
-#define SHIRO_COMMON_STRING_H
+extern int atexit(void (*func)(void));
+extern void exit(int status);
+extern void _exit(int status);
 
-#include <stdint.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-extern const uint16_t *utf16_common_hello_world;
-extern const uint16_t *utf16_common_newline;
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif  // SHIRO_COMMON_STRING_H
+#endif //SHIRO_CRT_H

@@ -22,8 +22,6 @@
 
 #include <stdint.h>
 
-static MyStruct global_my_struct;
-
 static const char16_t kHelloWorld16[] = u"Hello, world!";
 static const char16_t kNewLine16[] = u"\r\n";
 
@@ -32,5 +30,3 @@ extern "C" const uint16_t *utf16_common_hello_world =
 
 extern "C" const uint16_t *utf16_common_newline =
     reinterpret_cast<const uint16_t *>(kNewLine16);
-
-MyStruct TEST() { return global_my_struct; }

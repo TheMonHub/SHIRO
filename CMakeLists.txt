@@ -6,10 +6,14 @@ project(
         LANGUAGES ASM_NASM C
 )
 set(SHIRO_PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "Include directory" FORCE)
 include(cmake/common.cmake)
 
-set(SHIRO_VERSION "${PROJECT_VERSION}") # incase it didn't work with the cached variable
-set(SHIRO_VERSION "${PROJECT_VERSION}" CACHE INTERNAL "SHIRO version" FORCE)
+set(ACTUAL_PROJECT_VERSION "${PROJECT_VERSION}")
+set(PROJECT_VERSION "${SHIRO_VERSION}_${PROJECT_VERSION}")
+
+set(SHIRO_VERSION "${ACTUAL_PROJECT_VERSION}") # incase it didn't work with the cached variable
+set(SHIRO_VERSION "${ACTUAL_PROJECT_VERSION}" CACHE INTERNAL "SHIRO version" FORCE)
 
 add_subdirectory(src/SHIRO/crt)
 add_subdirectory(src/SHIRO/common)

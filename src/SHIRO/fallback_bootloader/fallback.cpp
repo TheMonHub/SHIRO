@@ -14,11 +14,24 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+class hello {
+ public:
+  hello() { int const i = 1; }
+  ~hello() { int const i = 1; }
+};
+
+hello test;
+
+extern "C" void atexit(void (*func)(void));
+
+void nothing() { return; }
+
 int something(int a, int b, int c) {
   int x = ++a;
   const int y = ++b;
   const int z = ++c;
   x += y + z;
+  atexit(nothing);
   return x;
 }
 
