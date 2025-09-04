@@ -4,6 +4,7 @@ extern __fini
 
 section .text
     global _start
+    global __main
 _start:
     call __init
     call main
