@@ -1,3 +1,4 @@
+; TODO: Use macro instead of helper function to normalize calling convention
 section .text
     global __crt_normalize_first_param
     global __crt_convention_stack_shadow_space

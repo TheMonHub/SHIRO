@@ -36,7 +36,7 @@ _start:
     mov rdi, rax
     jmp _exit_skip ; rdi is already normalized from main's return value so skip normalization. if not skip rcx will overwrite rdi in coff
 
-exit:
+exit: ; TODO: Add thread safety.
     call __crt_normalize_first_param
 _exit_skip: ; used when rdi is guaranteed to be normalized already
     push rdi
@@ -45,7 +45,6 @@ _exit_skip: ; used when rdi is guaranteed to be normalized already
     add rbx, __atexit_funcs
     mov rax, rbx
 .loop:
-    sub rax, 8
     cmp rax, __atexit_funcs
     jbe .done
 
@@ -53,6 +52,7 @@ _exit_skip: ; used when rdi is guaranteed to be normalized already
     call __crt_convention_stack_shadow_space
     call rdi
     call __crt_convention_stack_shadow_space_end
+    sub rax, 8
     jmp .loop
 .done:
     pop rdi
