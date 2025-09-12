@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.29 FATAL_ERROR)
 set(SHIRO_PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../..")
 include(${SHIRO_PARENT_DIR}/cmake/common.cmake)
 include(${SHIRO_PARENT_DIR}/cmake/toolchains/standalone.cmake)
+include(${SHIRO_PARENT_DIR}/cmake/toolchains/coff.cmake)
 include(${SHIRO_PARENT_DIR}/cmake/toolchains/efi.cmake)
 
 project(
@@ -21,7 +22,6 @@ set_output_run("${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SHIRO")
 add_executable(SHIROX64
         bootloader.asm
 )
-target_link_libraries(SHIROX64 PRIVATE SHIRO_EFI_COMMON)
 
 if (QEMU)
     message(STATUS "QEMU found: ${QEMU}")

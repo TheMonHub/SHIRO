@@ -25,12 +25,10 @@ set(CMAKE_C_COMPILER ${CLANG})
 set(CMAKE_CXX_COMPILER ${CLANG++})
 set(CMAKE_LINKER ${LLD})
 
-if (NOT DEFINED SHIRO_COMMON_INCLUDE_ONCE)
+if (NOT DEFINED INCLUDE_DIRECTORY)
     message(DEBUG "Including SHIRO Headers")
     include_directories(${SHIRO_PARENT_DIR}/include)
     set(INCLUDE_DIRECTORY ${SHIRO_PARENT_DIR}/include CACHE INTERNAL FORCE)
-    add_compile_options(-Wno-unused-command-line-argument)
-    set(SHIRO_COMMON_INCLUDE_ONCE ON CACHE INTERNAL "Do not include headers again pls")
 endif ()
 
 set(CMAKE_C_STANDARD 17)

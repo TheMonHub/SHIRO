@@ -16,7 +16,7 @@ set(SHIRO_VERSION "${ACTUAL_PROJECT_VERSION}") # incase it didn't work with the 
 set(SHIRO_VERSION "${ACTUAL_PROJECT_VERSION}" CACHE INTERNAL "SHIRO version" FORCE)
 
 add_subdirectory(src/SHIRO/crt)
-add_subdirectory(src/SHIRO/common)
+add_subdirectory(src/SHIRO/libc)
 add_subdirectory(src/SHIRO/bootloader)
 add_subdirectory(src/SHIRO/fallback_bootloader)
 
