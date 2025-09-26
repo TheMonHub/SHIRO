@@ -17,7 +17,8 @@
 #
 
 # shellcheck disable=SC2046
-cmake -S . -B build -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
-cmake --build build
+cd ..
+cmake -S . -B clang_tidy_build -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
+cmake --build clang_tidy_build
 # shellcheck disable=SC2046
 run-clang-tidy '^(?!.*(\.asm|\.inc|_deps/))' -p build -quiet

@@ -1,0 +1,22 @@
+#
+# SHIRO project, an operating system, kernel and bootloader.
+# Copyright (C) 2025 TheMonHub
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+# shellcheck disable=SC2035
+cd ..
+shopt -s globstar
+find . -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.cppm" \) -not -path "*/_deps/*" -not -path "*/llvm/*" -not -path "*/CMakeFiles/*" -not -path "*/_CPack_Packages/*" -exec clang-format -i -style=file --dry-run --Werror --verbose {} +
