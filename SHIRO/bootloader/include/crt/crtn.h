@@ -14,10 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-//
-// Created by Mono on 27/9/25.
-//
-
 #ifndef SHIRO_CRTN_H
 #define SHIRO_CRTN_H
 #ifdef __cplusplus

@@ -12,7 +12,7 @@ To maintain consistency and readability across the SHIRO codebase, please adhere
 
     ```cpp
     // SHIRO project, an operating system, kernel and bootloader.
-    // Copyright (C) 2025 TheMonHub
+    // Copyright (C) XXXX TheMonHub
     //
     // This program is free software: you can redistribute it and/or modify
     // it under the terms of the GNU General Public License as published by
@@ -26,12 +26,7 @@ To maintain consistency and readability across the SHIRO codebase, please adhere
     //
     // You should have received a copy of the GNU General Public License
     // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-    //
-    // Created by Mono on DAY/MONTH/YEAR.
-    //
     ```
-  *Note: The "Created by" line is primarily for your internal tracking or IDE integration and isn't strictly required.*
 
 * **Header Guards:** To prevent multiple inclusions, all header files (`.hpp`) must use include guards. The naming
   convention for these guards should follow the pattern:
@@ -49,9 +44,7 @@ To maintain consistency and readability across the SHIRO codebase, please adhere
 
         #endif // SHIRO_COMMON_H
         ```
-  This convention ensures uniqueness across your project and clearly indicates the file's location within the framework
-  structure.
-* **Required Guard:** All header files that are C header files (`.h`) must include the following guard:
+* **Required Heading:** All header files that are C header files (`.h`) must include the following guard:
     ```cpp                 
   // ... header guards ...
   
@@ -77,7 +70,7 @@ To maintain consistency and readability across the SHIRO codebase, please adhere
     * explain why a particular piece of code is written the way it is.
     * breakdown and explain how certain parts of the code work.
     * personal notes and thoughts.
-        * *NOTE: Please ensure your comments are complying with [CODE OF CONDUCT](CODE_OF_CONDUCT.md) and are
+        * *NOTE: Please ensure your comments are complying with [CODE OF CONDUCT](../../CODE_OF_CONDUCT.md) and are
           appropriate
           for the project. Avoid discriminatory or offensive comments.*
 
@@ -85,7 +78,7 @@ To maintain consistency and readability across the SHIRO codebase, please adhere
   the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) for more details.
     * Function names should be in `PascalCase` (e.g., `MyAwesomeFunction`).
       under any normal circumstances. An exception to this rule is when the function is a getter or setter. In this
-      case, the function name should be in
-      `snake_case` (e.g., `get_my_awesome_variable`).
+      case, the function name should be in `snake_case` (e.g., `get_my_awesome_variable`).
 
-**IMPORTANT:** Clang-tidy does not automatically check function names.
+**IMPORTANT:** Clang-tidy does not automatically check and correct function names convention. Please ensure that all
+function names are adhering to the above conventions.
