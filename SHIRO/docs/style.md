@@ -1,4 +1,4 @@
-### File and Naming Conventions
+## File and Naming Conventions
 
 ---
 

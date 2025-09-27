@@ -1,4 +1,4 @@
-### About this repository
+## About this repository
 
 ---
 
@@ -12,7 +12,7 @@ This repository contains the source code for SHIRO. including the kernel, bootlo
 |---------------------|-----------------------------------------------------------------------------------------------------|
 | `automated/`        | Automated scripts.                                                                                  |
 | `SHIRO/`            | Collection of SHIRO subprojects.                                                                    |
-| `SHIRO/docs/`       | Documentation files. containing Markdown files.                                                     |
+| `SHIRO/docs/`       | Documentation files for this Repository                                                             |
 | `SHIRO/kernel/`     | The [kernel source code](../kernel)                                                                 |
 | `SHIRO/bootloader/` | The [bootloader source code](../bootloader)                                                         |
 | `SHIRO/userspace/`  | The [userspace source code](../userspace)                                                           |
@@ -25,7 +25,8 @@ and `README.md` files that describe the components and how to build them.
 
 | Directory    | Description                                                                    |
 |--------------|--------------------------------------------------------------------------------|
-| `src/`       | The source codes of the project                                                |
-| `include/`   | The headers for the project                                                    |
-| `cmake/`     | The files used in cmake build system                                           |
+| `src/`       | The source codes of the project.                                               |
+| `include/`   | The headers for the project.                                                   |
+| `cmake/`     | The files used in cmake build system.                                          |
 | `automated/` | The scripts used to automated things. Must include the root automated scripts. |
+| `docs/`      | The documentation for the project.                                             |

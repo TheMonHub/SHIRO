@@ -1,4 +1,4 @@
-# Contributing to SHIRO
+## Contributing to SHIRO
 
 We're incredibly excited that you're interested in contributing to SHIRO! Your contributions, whether big or
 small, are vital to making SHIRO the best Operating system it can become.
@@ -183,7 +183,8 @@ cmake ..
 cmake --build .
 ```
 
-Refer to the top of `CMakeLists.txt` for the most accurate and up-to-date build instructions, including any
+Refer to the top of `CMakeLists.txt` in each subproject for the most accurate and up-to-date build instructions,
+including any
 configuration options.
 
 #### 7. Format Your Code (Crucial!)
@@ -222,6 +223,10 @@ To fix issues reported by Clang-Tidy automatically, you can use the `-fix` scrip
 ```bash
 ./automated/clang-tidy-fix.sh
 ```
+
+**IMPORTANT:** In step 7 and 8, you should always run the scripts from the root of the subproject you're working on,
+(e.g., `SHIRO/kernel/automated/clang-tidy.sh`, `SHIRO/userspace/automated/clang-format-fix.sh`). not the root of the
+project because the scripts will run for all subprojects, and it can be slow.
 
 #### 9. Commit Your Changes
 

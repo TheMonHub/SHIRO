@@ -18,8 +18,9 @@ To build SHIRO, you will (probably) need:
 * **Git:** Latest stable version.
 * **Clang-Format & Clang-Tidy:** Ensure these are installed and in your PATH for the formatting and static analysis
   scripts to work correctly, LLVM version 17 recommended.
-* **Bash:** For automated scripts.
-    * Windows, use [WSL](https://learn.microsoft.com/windows/wsl/install)
+* **Bash:** Required for automated scripts. On Windows, use [WSL](https://learn.microsoft.com/windows/wsl/install)
+* **QEMU / OVMF:** Required for running the kernel in an emulated
+  environment. [How to set up OVMF for QEMU.](https://wiki.archlinux.org/title/QEMU#Booting_in_UEFI_mode)
 
 Please ensure your development environment is set up according to these requirements.
 
