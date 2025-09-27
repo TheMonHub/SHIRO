@@ -1,6 +1,6 @@
 # Contributing to SHIRO
 
-We're incredibly excited that you're interested in contributing to SHIRO\! Your contributions, whether big or
+We're incredibly excited that you're interested in contributing to SHIRO! Your contributions, whether big or
 small, are vital to making SHIRO the best Operating system it can be.
 
 This guide outlines how you can contribute, ensuring a smooth and efficient process for everyone involved.
@@ -21,7 +21,7 @@ you're a seasoned developer or just starting out. Every contribution, no matter 
 
 ### Different Ways to Contribute
 
-#### 1\. Report Bugs and Issues
+#### 1. Report Bugs and Issues
 
 Found a bug? Encountered unexpected behavior? Your detailed reports are crucial for making SHIRO more stable and
 reliable.
@@ -31,7 +31,7 @@ reliable.
 * **What to Include:** Provide clear steps to reproduce the issue, what you expected to happen, what actually happened
   (including any error messages), and details about your environment (OS, compiler).
 
-#### 2\. Suggest New Features or Enhancements
+#### 2. Suggest New Features or Enhancements
 
 Have an idea to make SHIRO even better? We'd love to hear it!
 
@@ -39,7 +39,7 @@ Have an idea to make SHIRO even better? We'd love to hear it!
 * **What to Include:** Clearly describe the problem your feature solves, propose how it might work (conceptual design,
   API ideas), and explain why it would be beneficial to SHIRO and its users.
 
-#### 3\. Improve Documentation
+#### 3. Improve Documentation
 
 Good documentation is key to a framework's usability. If something is unclear, incomplete, or missing, you can help! We
 use Doxygen to generate our documentation.
@@ -51,23 +51,22 @@ use Doxygen to generate our documentation.
   standalone Markdown files like `README.md` or this `CONTRIBUTING.md`. Even small typos or clarity improvements are
   welcome.
 
-#### 4\. Help with Testing and Feedback
+#### 4. Help with Testing and Feedback
 
 As SHIRO evolves, rigorous testing is vital.
 
 * **How to Contribute:** You can help by testing new features from `develop` branches, running existing examples, or
   simply trying to build SHIRO on different systems and reporting any issues. Share your experiences, successes,
-  or challenges via [GitHub Issues](#1-report-bugs-and-issues) or our [Discord server](#need-help).
+  or challenges via [GitHub Issues](#1-report-bugs-and-issues).
 
-#### 5\. Provide Community Support
+#### 5. Provide Community Support
 
 If you're familiar with SHIRO, you can help others!
 
-* **How to Contribute:** Join our ~~[Discord server]()~~ and answer questions, provide
-  guidance, or share solutions with fellow contributors and users. Helping others learn and succeed with SHIRO
-  is a fantastic contribution.
+* **How to Contribute:** Answer questions, provide guidance, or share solutions with fellow contributors and users.
+  Helping others learn and succeed with SHIRO is a fantastic contribution.
 
-#### 6\. Spread the Word
+#### 6. Spread the Word
 
 Help us grow the SHIRO community!
 
@@ -80,12 +79,12 @@ Help us grow the SHIRO community!
 
 If you're ready to dive into the codebase and submit new features or bug fixes, this section is for you.
 
-#### 1\. Fork the Repository
+#### 1. Fork the Repository
 
 First, you'll need to fork the [SHIRO repository](https://github.com/TheMonHub/SHIRO) to your own GitHub
 account. This creates a personal copy where you can make your changes.
 
-#### 2\. Clone Your Fork
+#### 2. Clone Your Fork
 
 Clone your forked repository to your local machine:
 
@@ -94,21 +93,11 @@ git clone https://github.com/YourUsername/SHIRO.git
 cd SHIRO
 ````
 
-#### 3\. Development Environment Setup
+#### 3. Development Environment Setup
 
-To build and contribute to SHIRO, you will need:
+For development environment and requirements, please refer to the [README](README.md) Quick Start Guide.
 
-* **Compiler:**
-    * **Clang / Clang++:** LLVM/Clang 16.0 and newer for building C and C++
-    * **NASM:** Lastest stable version.
-* **CMake:** Version 3.28 or newer.
-* **Git:** Latest stable version.
-* **Clang-Format & Clang-Tidy:** Ensure these are installed and in your PATH for the formatting and static analysis
-  scripts to work correctly, LLVM version 19 recommended.
-
-Please ensure your development environment is set up according to these requirements.
-
-#### 4\. File and Naming Conventions
+#### 4. File and Naming Conventions
 
 To maintain consistency and readability across the SHIRO codebase, please adhere to the following conventions:
 
@@ -160,21 +149,22 @@ To maintain consistency and readability across the SHIRO codebase, please adhere
   This convention ensures uniqueness across your project and clearly indicates the file's location within the framework
   structure.
 * **Required Guard:** All header files that are C header files (`.h`) must include the following guard:
-    ```cpp
-    // ... header guards ...
-    
-    #ifdef __cplusplus
-    extern "C" {
-    #endif
-    
-    // ... file content ...
-    
-    #ifdef __cplusplus
-    }
-    #endif 
-    // ... header guards ...
+    ```cpp                 
+  // ... header guards ...
+  
+  #ifdef __cplusplus
+  extern "C" {
+  #endif 
+  
+  // ... file content ...
+  
+  #ifdef __cplusplus
+  } 
+  #endif 
+  
+  // ... header guards ...
 
-#### 5\. Gitflow Workflow
+#### 5. Gitflow Workflow
 
 SHIRO uses the **Gitflow Workflow**. This means we primarily work with feature branches.
 
@@ -201,7 +191,7 @@ the [gitflow documentation](https://github.com/nvie/gitflow)
 **NOTE:** For more details on the Gitflow Workflow, refer to
 the [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/).
 
-#### 6\. Build the Project
+#### 6. Build the Project
 
 SHIRO uses CMake for its build system. The primary build instructions are detailed directly within
 the [CMakeLists.txt](CMakeLists.txt) file at the root of the project.
@@ -218,7 +208,7 @@ cmake --build .
 Refer to the top of `CMakeLists.txt` for the most accurate and up-to-date build instructions, including any specific
 platform requirements or configuration options.
 
-#### 7\. Format Your Code (Crucial\!)
+#### 7. Format Your Code (Crucial!)
 
 SHIRO enforces strict code formatting using Clang-Format. **We adhere strictly to
 the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).**
@@ -237,7 +227,7 @@ To only check the formatting without making changes, you can use:
 ./automated/clang-format.sh
 ```
 
-#### 8\. Run Static Analysis (Important\!)
+#### 8. Run Static Analysis (Important!)
 
 We use Clang-Tidy for static analysis to catch potential bugs and enforce coding standards. **Before committing**, run
 the Clang-Tidy script:
@@ -255,7 +245,7 @@ To fix issues reported by Clang-Tidy automatically, you can use the `-fix` scrip
 ./automated/clang-tidy-fix.sh
 ```
 
-#### 9\. Commit Your Changes
+#### 9. Commit Your Changes
 
 Once your changes are complete, formatted, analyzed, and tested, commit them to your feature branch. Write clear and
 concise commit messages.
@@ -273,12 +263,10 @@ Use a clear and concise message prefixed with a type:
 <!-- end list -->
 
 ```bash
-git add .
-
 git commit -m "feat: Add new awesome widget"
 ```
 
-#### 10\. Push Your Feature Branch
+#### 10. Push Your Feature Branch
 
 Push your feature branch to your forked repository on GitHub:
 
@@ -286,7 +274,7 @@ Push your feature branch to your forked repository on GitHub:
 git push origin feature/your-feature-name
 ```
 
-#### 11\. Create a Pull Request (PR)
+#### 11. Create a Pull Request (PR)
 
 Before submitting your PR, please ensure:
 
@@ -308,7 +296,7 @@ Before submitting your PR, please ensure:
     * Reference any related issues (e.g., `Closes #123`, `Fixes #456`).
 5. Submit the pull request.
 
-#### 12\. Code Review
+#### 12. Code Review
 
 Maintainers will review your pull request. Be prepared to:
 
@@ -323,8 +311,7 @@ Once your PR is approved and all checks pass, it will be merged into the `develo
 If you get stuck or have questions about contributing, feel free to:
 
 * Open an [issue](https://github.com/TheMonHub/SHIRO/issues) on GitHub.
-* ~~[Join our Discord server]()~~
 
 -----
 
-Thank you for contributing to SHIRO\! We appreciate your efforts in making this project better.
+Thank you for contributing to SHIRO! We appreciate your efforts in making this project better.

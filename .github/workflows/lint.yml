@@ -1,0 +1,43 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  checks: write
+  contents: read
+
+jobs:
+  run-linters:
+    name: Format and Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "19"
+          env: true
+
+      - name: Set up CMake and Ninja
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: latest
+          ninjaVersion: latest
+
+      - name: Run Clang-Format
+        run: |
+          echo "Running clang-format..."
+          ./automated/clang-format.sh
+        shell: bash
+
+      - name: Run Clang-Tidy
+        run: |
+          echo "Running clang-tidy..."
+          echo "---------------------------------------------------"
+          ./automated/clang-tidy.sh
+        shell: bash
