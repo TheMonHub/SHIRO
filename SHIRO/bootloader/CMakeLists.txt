@@ -20,3 +20,4 @@ include(cmake/toolchain.cmake)
 set(KURO_INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "Include directory for KURO" FORCE)
 
 add_subdirectory(src/crt)
+add_subdirectory(src/bootloader)

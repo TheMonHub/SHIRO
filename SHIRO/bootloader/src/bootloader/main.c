@@ -17,13 +17,11 @@
 //
 // Created by Mono on 27/9/25.
 //
-#include "crt/crt1.h"
-
 #include "efi/types.h"
-extern int main(EFI_HANDLE ImageHandle, const EFI_SYSTEM_TABLE *SystemTable);
 
-void _start(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
-  main(ImageHandle, SystemTable);
+int main(EFI_HANDLE ImageHandle, const EFI_SYSTEM_TABLE *SystemTable) {
+  CHAR16 hello[] = {'H', 'e', 'l', 'l', 'o', ',',  ' ',  'W',
+                    'o', 'r', 'l', 'd', '!', '\r', '\n', 0};
+  SystemTable->ConOut->OutputString(SystemTable->ConOut, hello);
+  return 0;
 }
-
-void __main() {}

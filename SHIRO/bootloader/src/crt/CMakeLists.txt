@@ -11,10 +11,10 @@ project(KURO_CRT
         LANGUAGES ASM_NASM C
 )
 
-add_library(KURO_CRT_A STATIC crtbegin.c)
+add_library(KURO_CRT_A STATIC crtbegin.c crt1.c)
 add_library(KURO_CRT_Z STATIC crtend.c)
 target_include_directories(KURO_CRT_A PUBLIC ${KURO_INCLUDE_DIRECTORY})
 target_include_directories(KURO_CRT_Z PUBLIC ${KURO_INCLUDE_DIRECTORY})
 
-set(KURO_CRTA CACHE INTERNAL "C runtime for UEFI (start)" FORCE)
-set(KURO_CRTZ CACHE INTERNAL "C runtime for UEFI (end)" FORCE)
+set(KURO_CRTA "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/efi_KURO_CRT_A.a" CACHE INTERNAL "C runtime for UEFI (start)" FORCE)
+set(KURO_CRTZ "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/efi_KURO_CRT_Z.a" CACHE INTERNAL "C runtime for UEFI (end)" FORCE)
