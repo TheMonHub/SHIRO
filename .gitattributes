@@ -1,0 +1,24 @@
+# Set default line endings to LF for all common text/code files
+*.c text eol=lf working-tree-encoding=UTF-8
+*.cpp text eol=lf working-tree-encoding=UTF-8
+*.h text eol=lf working-tree-encoding=UTF-8
+*.hpp text eol=lf working-tree-encoding=UTF-8
+*.asm text eol=lf working-tree-encoding=UTF-8
+*.inc text eol=lf working-tree-encoding=UTF-8
+*.cmake text eol=lf working-tree-encoding=UTF-8
+*.txt text eol=lf working-tree-encoding=UTF-8
+*.md text eol=lf working-tree-encoding=UTF-8
+*.in text eol=lf working-tree-encoding=UTF-8
+*.json text eol=lf working-tree-encoding=UTF-8
+*.yml text eol=lf working-tree-encoding=UTF-8
+
+# Explicitly mark known binary files to prevent any line ending conversion
+*.png binary
+*.jpg binary
+*.ico binary
+*.dll binary
+*.exe binary
+*.lib binary
+*.a binary
+*.so binary
+*.dylib binary
