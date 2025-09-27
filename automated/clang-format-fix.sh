@@ -16,8 +16,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-# shellcheck disable=SC2046
-cmake -S . -B build -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
-cmake --build build
-# shellcheck disable=SC2046
-run-clang-tidy '^(?!.*(\.asm|\.inc|_deps/))' -p build -quiet
+# shellcheck disable=SC2035
+cd ..
+shopt -s globstar
+find . -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.cppm" \) -not -path "*/_deps/*" -not -path "*/llvm/*" -not -path "*/CMakeFiles/*" -not -path "*/_CPack_Packages/*" -exec clang-format -i -style=file --verbose {} +

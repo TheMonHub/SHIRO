@@ -15,7 +15,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-mkdir -p qemu
-sudo cp -n @OVMF_DIR@/OVMF_VARS.4m.fd qemu/OVMF_VARS.4m.fd
-sudo chown "$(whoami):$(whoami)" qemu/OVMF_VARS.4m.fd
-qemu-system-x86_64 -drive if=pflash,format=raw,readonly=on,file=@OVMF_DIR@/OVMF_CODE.4m.fd -drive if=pflash,format=raw,file=qemu/OVMF_VARS.4m.fd -drive format=raw,file=fat:rw:boot/
+
+# shellcheck disable=SC2046
+cd ..
+cmake -S . -B clang_tidy_build -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
+cmake --build clang_tidy_build
+# shellcheck disable=SC2046
+run-clang-tidy '^(?!.*(\.asm|\.inc|_deps/))' -p build -quiet

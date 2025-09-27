@@ -14,25 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-class hello {
- public:
-  hello() { int const i = 1; }
-  ~hello() { int const i = 1; }
-};
+//
+// Created by Mono on 26/9/25.
+//
 
-hello test;
+#ifndef SHIRO_HEYA_H
+#define SHIRO_HEYA_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-extern "C" void atexit(void (*func)(void));
-
-void nothing() { return; }
-
-int something(int a, int b, int c) {
-  int x = ++a;
-  const int y = ++b;
-  const int z = ++c;
-  x += y + z;
-  atexit(nothing);
-  return x;
+#ifdef __cplusplus
 }
-
-int main(const int a, const int b, const int c) { return something(a, b, c); }
+#endif
+#endif  // SHIRO_HEYA_H
