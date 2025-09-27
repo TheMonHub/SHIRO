@@ -3,6 +3,8 @@
 We're incredibly excited that you're interested in contributing to SHIRO! Your contributions, whether big or
 small, are vital to making SHIRO the best Operating system it can become.
 
+We love contributors — don’t be shy, dive in!
+
 This guide outlines how you can contribute, ensuring a smooth and efficient process for everyone involved.
 
 -----
@@ -12,21 +14,28 @@ This guide outlines how you can contribute, ensuring a smooth and efficient proc
 1. [Code of Conduct](#code-of-conduct)
 2. [How to Contribute: Beyond Just Code](#how-to-contribute-beyond-just-code)
     1. [Different Ways to Contribute](#different-ways-to-contribute)
+        1. [Report Bugs and Issues](#1-report-bugs-and-issues)
+        2. [Suggest New Features or Enhancements](#2-suggest-new-features-or-enhancements)
+        3. [Improve Documentation](#3-improve-documentation)
+        4. [Help with Testing and Feedback](#4-help-with-testing-and-feedback)
+        5. [Provide Community Support](#5-provide-community-support)
+        6. [Spread the Word](#6-spread-the-word)
+        7. [Create an automated script](#7-create-an-automated-script)
     2. [Contributing Code (Technical Guide)](#contributing-code-technical-guide)
-        1. [1. Fork the Repository](#1-fork-the-repository)
-        2. [2. Clone Your Fork](#2-clone-your-fork)
-        3. [3. Development Environment Setup](#3-development-environment-setup)
-        4. [4. File and Naming Conventions](#4-file-and-naming-conventions)
-        5. [5. Gitflow Workflow](#5-gitflow-workflow)
-            1. [5.1. Manual Workflow](#51-manual-workflow)
-            2. [5.2. Gitflow Workflow](#52-gitflow-workflow)
-        6. [6. Build the Project](#6-build-the-project)
-        7. [7. Format Your Code (Crucial!)](#7-format-your-code-crucial)
-        8. [8. Run Static Analysis (Important!)](#8-run-static-analysis-important)
-        9. [9. Commit Your Changes](#9-commit-your-changes)
-        10. [10. Push Your Feature Branch](#10-push-your-feature-branch)
-        11. [11. Create a Pull Request (PR)](#11-create-a-pull-request-pr)
-        12. [12. Code Review](#12-code-review)
+        1. [Fork the Repository](#1-fork-the-repository)
+        2. [Clone Your Fork](#2-clone-your-fork)
+        3. [Development Environment Setup](#3-development-environment-setup)
+        4. [File and Naming Conventions](#4-file-and-naming-conventions)
+        5. [Gitflow Workflow](#5-gitflow-workflow)
+            1. [Manual Workflow](#51-manual-workflow)
+            2. [Gitflow Workflow](#52-gitflow-workflow)
+        6. [Build the Project](#6-build-the-project)
+        7. [Format Your Code (Crucial!)](#7-format-your-code-crucial)
+        8. [Run Static Analysis (Important!)](#8-run-static-analysis-important)
+        9. [Commit Your Changes](#9-commit-your-changes)
+        10. [Push Your Feature Branch](#10-push-your-feature-branch)
+        11. [Create a Pull Request (PR)](#11-create-a-pull-request-pr)
+        12. [Code Review](#12-code-review)
 3. [Need Help?](#need-help)
 
 -----
@@ -79,7 +88,7 @@ As SHIRO evolves, rigorous testing is vital.
 
 * **How to Contribute:** You can help by testing new features from `develop` branches, running existing examples, or
   simply trying to build SHIRO on different systems and reporting any issues. Share your experiences, successes,
-  or challenges via [GitHub Issues](#1-report-bugs-and-issues).
+  or challenges via [GitHub Issues](https://github.com/TheMonHub/SHIRO/issues/new/choose).
 
 #### 5. Provide Community Support
 
@@ -94,6 +103,40 @@ Help us grow the SHIRO community!
 
 * **How to Contribute:** Share SHIRO on social media, write blog posts, create tutorials, or present it at
   meetups. Raising awareness helps us attract more users and contributors.
+
+#### 7. Create an automated script
+
+SHIRO uses [automated scripts](automated) to automate tasks for contributors/maintainers. If you're familiar with bash,
+you're welcome to help us write more scripts. Make sure to include the copyright notice in the header of the
+script. and if possible, add it to other `automated` folders in each subproject.
+
+Please [fork the repository](#2-clone-your-fork) and [create a new branch](#5-gitflow-workflow) for your changes on
+feature branches.
+Then you can create a [pull request](#11-create-a-pull-request-pr).
+
+```bash
+#!/bin/bash
+
+#
+# SHIRO project, an operating system, kernel and bootloader.
+# Copyright (C) 2025 TheMonHub
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+# Your script goes here.
+```
 
 ---
 
@@ -184,8 +227,7 @@ cmake --build .
 ```
 
 Refer to the top of `CMakeLists.txt` in each subproject for the most accurate and up-to-date build instructions,
-including any
-configuration options.
+including any configuration options.
 
 #### 7. Format Your Code (Crucial!)
 
@@ -225,8 +267,8 @@ To fix issues reported by Clang-Tidy automatically, you can use the `-fix` scrip
 ```
 
 **IMPORTANT:** In step 7 and 8, you should always run the scripts from the root of the subproject you're working on,
-(e.g., `SHIRO/kernel/automated/clang-tidy.sh`, `SHIRO/userspace/automated/clang-format-fix.sh`). not the root of the
-project because the scripts will run for all subprojects, and it can be slow.
+(e.g., `SHIRO/kernel/automated/clang-tidy.sh`, `SHIRO/userspace/automated/clang-format-fix.sh`). not the repository
+root, because the scripts will run for all subprojects and may be slow.
 
 #### 9. Commit Your Changes
 
@@ -262,7 +304,8 @@ git push origin feature/your-feature-name
 Before submitting your PR, please ensure:
 
 * Your code is formatted (`./automated/clang-format-fix.sh`).
-* Clang-Tidy reports no major warnings (`./automated/clang-tidy.sh`).
+* Clang-Tidy reports no error (`./automated/clang-tidy.sh`). Feel free to edit checks configuration in `.clang-tidy`
+  file, keep it to a minimum.
 * All existing tests pass, and new tests are added for new features/fixes.
 * Your commit messages follow the Conventional Commits guidelines.
 * You have read through your changes one last time, as if you were reviewing someone else's code.
@@ -293,7 +336,7 @@ Once your PR is approved and all checks pass, it will be merged into the `develo
 
 If you get stuck or have questions about contributing, feel free to:
 
-* Open an [issue](https://github.com/TheMonHub/SHIRO/issues) on GitHub.
+* Open an [issue](https://github.com/TheMonHub/SHIRO/issues/new/choose) on GitHub.
 
 -----
 

@@ -38,6 +38,7 @@
 # Build directories
 build/
 cmake-build-*/
+clang_tidy_build/
 
 # Compile commands
 compile_commands.json

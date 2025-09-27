@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.29)
 
 project(SHIRO
         DESCRIPTION "An Operating system for x86_64 UEFI Aiming to be flexible and user-friendly"

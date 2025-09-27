@@ -1,3 +1,7 @@
+#!/bin/bash
+
+
+
 #
 # SHIRO project, an operating system, kernel and bootloader.
 # Copyright (C) 2025 TheMonHub
@@ -16,9 +20,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-# shellcheck disable=SC2046
-cd ..
-cmake -S . -B clang_tidy_build -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
+mkdir -p clang_tidy_build
+cmake -S .. -B clang_tidy_build -DCMAKE_C_COMPILER=$(which clang) -DCMAKE_CXX_COMPILER=$(which clang++) -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
 cmake --build clang_tidy_build
 # shellcheck disable=SC2046
-run-clang-tidy '^(?!.*(\.asm|\.inc|_deps/))' -p build -quiet
+run-clang-tidy '^(?!.*(\.asm|\.inc|_deps/))' -p clang_tidy_build -quiet

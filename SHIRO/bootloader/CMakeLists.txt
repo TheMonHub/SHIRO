@@ -1,4 +1,4 @@
-# Build CMake as usual. No config needed here
+# No config
 
 # This project will return these cmake cache variable:
 # ${KURO_CRTA} C runtime for efi. Put before any other object file when linking.
@@ -12,8 +12,11 @@ cmake_minimum_required(VERSION 3.29 FATAL_ERROR)
 project(KURO
         DESCRIPTION "A bootloader for x86_64 UEFI to go with SHIRO"
         HOMEPAGE_URL "https://github.com/TheMonHub/SHIRO"
+        LANGUAGES C CXX ASM_NASM
 )
 
-set(KURO_INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "Include directory for KURO")
+include(cmake/toolchain.cmake)
+
+set(KURO_INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "Include directory for KURO" FORCE)
 
 add_subdirectory(src/crt)

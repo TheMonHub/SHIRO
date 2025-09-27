@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #
 # SHIRO project, an operating system, kernel and bootloader.
 # Copyright (C) 2025 TheMonHub
@@ -16,7 +18,5 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-# shellcheck disable=SC2035
-cd ..
 shopt -s globstar
-find . -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.cppm" \) -not -path "*/_deps/*" -not -path "*/llvm/*" -not -path "*/CMakeFiles/*" -not -path "*/_CPack_Packages/*" -exec clang-format -i -style=file --verbose {} +
+find .. -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.cppm" \) -not -path "*/_deps/*" -not -path "*/llvm/*" -not -path "*/CMakeFiles/*" -not -path "*/_CPack_Packages/*" -exec clang-format -i -style=file --verbose {} +

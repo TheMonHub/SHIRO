@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+
+# crt1.o
 #
 # SHIRO project, an operating system, kernel and bootloader.
 # Copyright (C) 2025 TheMonHub
@@ -18,5 +21,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-shopt -s globstar
-find .. -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.cppm" \) -not -path "*/_deps/*" -not -path "*/llvm/*" -not -path "*/CMakeFiles/*" -not -path "*/_CPack_Packages/*" -exec clang-format -i -style=file --dry-run --Werror --verbose {} +
+gcc -print-file-name=crt1.o
+
+# crti.o
+gcc -print-file-name=crti.o
+
+# crtn.o
+gcc -print-file-name=crtn.o
+
+# crtbegin.o / crtend.o (for C++)
+gcc -print-file-name=crtbegin.o
+gcc -print-file-name=crtend.o
