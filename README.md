@@ -12,14 +12,19 @@ SHIRO is an open-source operating system for x86_64 UEFI. Aiming to be flexible,
 To build SHIRO, you will (probably) need:
 
 * **Compiler:**
-    * **Clang / Clang++:** LLVM/Clang 17.0 and newer for building C and C++
+    * **Clang / Clang++:** LLVM/Clang 17.0 or newer for building C and C++
     * **NASM:** Latest stable version.
 * **CMake:** Version 3.29 or newer.
 * **Git:** Latest stable version.
 * **Clang-Format & Clang-Tidy:** Ensure these are installed and in your PATH for the formatting and static analysis
   scripts to work correctly, LLVM version 17 recommended.
+* **Bash:** For automated scripts.
+    * Windows, use [WSL](https://learn.microsoft.com/windows/wsl/install)
 
 Please ensure your development environment is set up according to these requirements.
+
+For more information on the project structure,
+see [docs/repo.md](SHIRO/docs/repo.md).
 
 ---
 

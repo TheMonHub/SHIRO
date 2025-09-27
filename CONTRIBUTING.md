@@ -1,9 +1,33 @@
 # Contributing to SHIRO
 
 We're incredibly excited that you're interested in contributing to SHIRO! Your contributions, whether big or
-small, are vital to making SHIRO the best Operating system it can be.
+small, are vital to making SHIRO the best Operating system it can become.
 
 This guide outlines how you can contribute, ensuring a smooth and efficient process for everyone involved.
+
+-----
+
+## Table of Contents
+
+1. [Code of Conduct](#code-of-conduct)
+2. [How to Contribute: Beyond Just Code](#how-to-contribute-beyond-just-code)
+    1. [Different Ways to Contribute](#different-ways-to-contribute)
+    2. [Contributing Code (Technical Guide)](#contributing-code-technical-guide)
+        1. [1. Fork the Repository](#1-fork-the-repository)
+        2. [2. Clone Your Fork](#2-clone-your-fork)
+        3. [3. Development Environment Setup](#3-development-environment-setup)
+        4. [4. File and Naming Conventions](#4-file-and-naming-conventions)
+        5. [5. Gitflow Workflow](#5-gitflow-workflow)
+            1. [5.1. Manual Workflow](#51-manual-workflow)
+            2. [5.2. Gitflow Workflow](#52-gitflow-workflow)
+        6. [6. Build the Project](#6-build-the-project)
+        7. [7. Format Your Code (Crucial!)](#7-format-your-code-crucial)
+        8. [8. Run Static Analysis (Important!)](#8-run-static-analysis-important)
+        9. [9. Commit Your Changes](#9-commit-your-changes)
+        10. [10. Push Your Feature Branch](#10-push-your-feature-branch)
+        11. [11. Create a Pull Request (PR)](#11-create-a-pull-request-pr)
+        12. [12. Code Review](#12-code-review)
+3. [Need Help?](#need-help)
 
 -----
 
@@ -29,7 +53,7 @@ reliable.
 * **How to Report:** Please open a new [GitHub Issue](https://github.com/TheMonHub/SHIRO/issues/new/choose). We
   have templates to guide you.
 * **What to Include:** Provide clear steps to reproduce the issue, what you expected to happen, what actually happened
-  (including any error messages), and details about your environment (OS, compiler).
+  (including any error messages), and details about your environment (OS, version, compiler).
 
 #### 2. Suggest New Features or Enhancements
 
@@ -42,14 +66,12 @@ Have an idea to make SHIRO even better? We'd love to hear it!
 #### 3. Improve Documentation
 
 Good documentation is key to a framework's usability. If something is unclear, incomplete, or missing, you can help! We
-use Doxygen to generate our documentation.
+use Markdown for our documentation.
 
 * **How to Contribute:** This often involves submitting
   a [Pull Request](https://github.com/TheMonHub/SHIRO/pulls) with your
-  proposed changes. Since we use Doxygen, documentation comments primarily live within the **source code files**
-  themselves (e.g., `.h`/`.hpp` headers, `.cppm` interface and `.cpp` implementation files). You can also improve
-  standalone Markdown files like `README.md` or this `CONTRIBUTING.md`. Even small typos or clarity improvements are
-  welcome.
+  proposed changes. Since we use Markdown for documentation, you can find the source files in the
+  [docs](SHIRO/docs) directory.
 
 #### 4. Help with Testing and Feedback
 
@@ -79,6 +101,11 @@ Help us grow the SHIRO community!
 
 If you're ready to dive into the codebase and submit new features or bug fixes, this section is for you.
 
+**Also** read the documentation on [repository](SHIRO/docs/repo.md) for more information on the project
+structure and how to build and run the project.
+
+develop → feature → PR → develop
+
 #### 1. Fork the Repository
 
 First, you'll need to fork the [SHIRO repository](https://github.com/TheMonHub/SHIRO) to your own GitHub
@@ -99,70 +126,7 @@ For development environment and requirements, please refer to the [README](READM
 
 #### 4. File and Naming Conventions
 
-To maintain consistency and readability across the SHIRO codebase, please adhere to the following conventions:
-
-* **File Naming:** All source and header files (`.hpp`, `.cpp`, `.g`, `.c`) must use **`snake_case`** for their names (
-  e.g., `my_awesome_module.hpp`, `bootloader.cpp`).
-
-* **File Headers (Copyright & License):** Every new or modified source file must begin with the standard SHIRO
-  copyright and license header. Please ensure the year is current.
-
-    ```cpp
-    // SHIRO project, an operating system, kernel and bootloader.
-    // Copyright (C) 2025 TheMonHub
-    //
-    // This program is free software: you can redistribute it and/or modify
-    // it under the terms of the GNU General Public License as published by
-    // the Free Software Foundation, either version 3 of the License, or
-    // (at your option) any later version.
-    //
-    // This program is distributed in the hope that it will be useful,
-    // but WITHOUT ANY WARRANTY; without even the implied warranty of
-    // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    // GNU General Public License for more details.
-    //
-    // You should have received a copy of the GNU General Public License
-    // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-    //
-    // Created by Mono on DAY/MONTH/YEAR.
-    //
-    ```
-  *Note: The "Created by" line is primarily for your internal tracking or IDE integration and isn't strictly required.*
-
-* **Header Guards:** To prevent multiple inclusions, all header files (`.hpp`) must use include guards. The naming
-  convention for these guards should follow the pattern:
-  `SHIRO__FILENAME`
-
-    * **Structure:** `SHIRO_` (project prefix) `FILENAME_` (snake_case filename)
-      `EXTENSION` (e.g., `HPP`)
-
-    * **Example for `common.h`:**
-        ```cpp
-        #ifndef SHIRO_COMMON_H
-        #define SHIRO_COMMON_H
-
-        // ... file content ...
-
-        #endif // SHIRO_COMMON_H
-        ```
-  This convention ensures uniqueness across your project and clearly indicates the file's location within the framework
-  structure.
-* **Required Guard:** All header files that are C header files (`.h`) must include the following guard:
-    ```cpp                 
-  // ... header guards ...
-  
-  #ifdef __cplusplus
-  extern "C" {
-  #endif 
-  
-  // ... file content ...
-  
-  #ifdef __cplusplus
-  } 
-  #endif 
-  
-  // ... header guards ...
+Please refer to the [Code Style Guide](SHIRO/docs/style.md) for more information on file and naming conventions.
 
 #### 5. Gitflow Workflow
 
@@ -177,18 +141,32 @@ SHIRO uses the **Gitflow Workflow**. This means we primarily work with feature b
    ```bash
    git remote add upstream https://github.com/TheMonHub/SHIRO.git
    ```
-2. **Create a Feature Branch:** Based on `develop`, create a new feature branch for your changes. Use a descriptive
+
+##### 5.1. Manual Workflow
+
+1. **Create a Feature Branch:** Based on `develop`, create a new feature branch for your changes. Use a descriptive
    name (e.g., `feature/add-new-widget`, `bugfix/fix-memory-leak`).
    ```bash
    git checkout -b feature/your-feature-name develop
    ```
-3. **Make Your Changes:** Implement your bug fix or feature.
+2. **Make Your Changes:** Implement your bug fix or feature.
 
-**IMPORTANT:** It is recommended to use gitflow extensions for Git to manage your branches and releases more easily. If
+##### 5.2. Gitflow Workflow
+
+1. **Create a Feature Branch:**
+   ```bash
+   git flow feature start FEATURE_NAME
+   ```
+   Git flow will create a branch named `feature/FEATURE_NAME` and switch to it.
+2. **Make Your Changes:** Implement your bug fix or feature.
+
+**NOTE:** It is recommended to use gitflow extensions for Git to manage your branches and releases more easily. If
 you haven't set up gitflow yet, you can do so by following the instructions in
-the [gitflow documentation](https://github.com/nvie/gitflow)
+the [gitflow documentation](https://github.com/nvie/gitflow) but if you're not familiar with gitflow, or you don't want
+to install it, you can skip
+this step.
 
-**NOTE:** For more details on the Gitflow Workflow, refer to
+For more details on the Gitflow Workflow, refer to
 the [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/).
 
 #### 6. Build the Project
@@ -205,8 +183,8 @@ cmake ..
 cmake --build .
 ```
 
-Refer to the top of `CMakeLists.txt` for the most accurate and up-to-date build instructions, including any specific
-platform requirements or configuration options.
+Refer to the top of `CMakeLists.txt` for the most accurate and up-to-date build instructions, including any
+configuration options.
 
 #### 7. Format Your Code (Crucial!)
 
