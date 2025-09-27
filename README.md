@@ -9,12 +9,12 @@
 
 ### Quick Start Guide
 
-To build SHIRO, you will need:
+To build SHIRO, you will (probably) need:
 
 * **Compiler:**
     * **Clang / Clang++:** LLVM/Clang 16.0 and newer for building C and C++
     * **NASM:** Lastest stable version.
-* **CMake:** Version 3.28 or newer.
+* **CMake:** Version 3.29 or newer.
 * **Git:** Latest stable version.
 * **Clang-Format & Clang-Tidy:** Ensure these are installed and in your PATH for the formatting and static analysis
   scripts to work correctly, LLVM version 19 recommended.
